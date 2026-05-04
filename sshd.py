@@ -1,6 +1,12 @@
 import simpy
 import random
 
+
+class SysCall(simpy.events.Event):
+    def __init__(self,env,name):
+        super().__init__(env)
+        self.name = name
+
 class Sshd:
     def __init__(self, env):
         self.env = env
@@ -12,6 +18,9 @@ class Sshd:
         yield self.env.timeout(1)
         print("Handshake successful")
         self.sessions.append(username)
+        testSyscall = SysCall(self.env,"fcntl")
+        yield testSyscall.succeed()
+        print(f"call {testSyscall.name} succeeded")
 
     def exit(self, username):
         print(f"Checking for user session...")
