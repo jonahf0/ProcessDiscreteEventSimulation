@@ -1,0 +1,5 @@
+how to do multi-threaded stuff?
+
+does not current support conplex operations like suspending / continuing processes
+
+how to correlate when a subprocess kicks off?
