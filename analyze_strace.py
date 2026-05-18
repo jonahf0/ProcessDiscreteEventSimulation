@@ -46,7 +46,7 @@ def create_process_tree(file):
             
         #use a match in case there's other weird calls to handle
         match (call_name:=call.split("(")[0]):
-            case "clone":
+            case "clone" | "clone3":
                 #second to last item for a line that says "clone" should look like PID<PROC>;
                 #if not, try assuming the original
                 child_info = line[-2].strip()
