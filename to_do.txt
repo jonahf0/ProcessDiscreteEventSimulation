@@ -1,5 +1,36 @@
-how to do multi-threaded stuff?
+create tool to design the process simulation
+	syscalls and audtid events grouped logically together
+	audtid events help to create explainable labels for the states of the process
+	use other ways to measure the performance overhead caused by strace and compensate
+	or, use one of the higher-performance measurements + auditd events to determine true performance
+		better yet, once you understand performance, demonstrate that specific syscalls cluster around specific auditd events then demonstrate the timings of the auditd events
 
-does not current support conplex operations like suspending / continuing processes
+use Design of Experiments to measure sensitivity of factors like:
+	file I/O
+	work load
+	other pressures
 
-how to correlate when a subprocess kicks off?
+could also use DoE to measure importance of specific events, syscalls, etc.
+
+to measure:
+	disturbance in the expected model
+	measure weirder things that are model specific
+		syscall order
+		variance in the events
+		clusters of syscalls
+		graph-based measures like edit distance	
+
+verify this model against a real process:
+	introduce actual I/O problems, etc.
+	measure error, etc.
+
+then put the model into different series of pertubations
+	significant bandwidth issues from data exfilration
+	shared library hijacking
+	etc.
+
+map the pertubtations to a specific attack or expected problem
+
+map which parts of the process state are most sensitive to pertubations
+
+
